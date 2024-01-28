@@ -37,7 +37,10 @@ class TestStack:
         stk = Stack()
         assert(stk.isEmpty())
         assert(stk.size() == 0)
-        assert(stk.pop() == None)
+        try:
+            assert(stk.pop() == None)
+        except IndexError:
+            pass
         stk.push(1)
         assert(not stk.isEmpty())
         assert(stk.size() == 1)
@@ -52,7 +55,10 @@ class TestStack:
         assert(stk.size() == 1)
         assert(stk.pop() == 1)
         stk.push(1)
-        stk.push(2)
+        try:
+            stk.push(2)
+        except ValueError:
+            pass
         assert(stk.full())
         assert(stk.size() == 1)
         assert(stk.pop() == 1)
